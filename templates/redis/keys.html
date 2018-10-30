@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	
+	<div>
+		<ul>
+			{% for item in data %}
+			<li><a href="/chhs/getdata?key={{item}}" target="_blank">{{item}}</a></li>
+			{% endfor%}
+		</ul>
+	</div>
+</body>
+</html>
