@@ -9,13 +9,12 @@ import sys
 reload(sys) 
 sys.setdefaultencoding('utf8')
 
-
-
 from config import config
 
 app = Flask(__name__,static_folder=config['static'])
 # app.add_url_rule('/favicon.ico', redirect=url_for(config['static'], filename='favicon.ico'))
 CORS(app, resources=r'/*', supports_credentials=True)
+
 
 @app.before_request
 def before_request():
@@ -108,6 +107,8 @@ def login():
 def temp():
 	return render_template('index.html',name=__name__)
 if __name__=='__main__':
+	from database.mysql_db import connMysql
+	connMysql(app)
 	app.debug = True
 	app.run(host='0.0.0.0',port=8888,debug=True)
 
