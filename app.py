@@ -107,8 +107,8 @@ def login():
 def temp():
 	return render_template('index.html',name=__name__)
 if __name__=='__main__':
-	from database.mysql_db import connMysql
-	connMysql(app)
+	# from database.mysql_db import connMysql
+	# connMysql(app)
 	app.debug = True
 	app.run(host='0.0.0.0',port=8888,debug=True)
 
